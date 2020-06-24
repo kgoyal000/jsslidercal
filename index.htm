@@ -1,0 +1,151 @@
+
+<!DOCTYPE html> 
+<html> 
+<style> 
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        input[type='range'] {
+          overflow: hidden;
+          width: 100%;
+          -webkit-appearance: none;
+          background-color: #f6cc6c;
+          border-radius: 100px 100px 100px 100px;
+        }
+        input[type='range'] {
+            outline: none;
+        }
+input[type='range']::-webkit-slider-runnable-track {
+    height:30px;
+    -webkit-appearance: none;
+    color: #13bba4;
+    margin-top: -1px;
+    background-color: #F9ECCD;
+  }
+  
+  input[type='range']::-webkit-slider-thumb {
+    width: 30px;
+    -webkit-appearance: none;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #434343;
+    box-shadow: -350px 0 0 330px #f6cc6c;
+  }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+    background: #F6CC6C;
+}
+input[type="range"]::-moz-range-track {  
+background-color: #F9ECCD;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+background-color: #f6cc6c; 
+}
+input[type="range"]::-ms-fill-upper {  
+background-color: #F9ECCD;
+}
+body{
+    box-sizing: 0;
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.heading{
+    text-align: center;
+}
+.heading > h4{
+    font-size: 2rem;
+    font-weight: bold;
+}
+#final{
+    font-size: 4.5rem;
+    font-weight: bold;
+   
+}
+sub{
+    font-size: 2rem;
+}
+.rangeslider{
+    font-size: 1rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+hr{
+    width: 80%
+}
+#demo,#demo1,#demo2{
+    float: right;
+    font-weight: bold;
+}
+p{
+    margin: 10px auto;
+}
+.footer{
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(112, 109, 109);
+}
+
+</style> 
+<body> 
+    <div class="heading">
+        <h4>How Much You Can Earn?</h4>
+         <div id="final"></div>
+    </div>
+  
+<div class="rangeslider"> 
+  <input type="range" min="1.0" max="40.0" value="18"
+                  class="myslider" id="sliderRange"> 
+  <p>Amount per class <span id="demo"></span></p> 
+</div> 
+<div class="rangeslider"> 
+    <input type="range" min="1" max="25" value="5"
+                    class="myslider" id="sliderRange1"> 
+    <p>No. of Attendees <span id="demo1"></span></p> 
+  </div> 
+  <div class="rangeslider"> 
+    <input type="range" min="1" max="10" value="8"
+                    class="myslider" id="sliderRange2"> 
+    <p>No. of classes per week <span id="demo2"></span></p> 
+</div>
+<hr> 
+<div class="footer">
+    
+    <p>Simple Pricing: 10% plus credit card fees.</p>
+    <p>No cost upfront.We only make money</p>
+    <p>when you make money</p>
+</div>
+
+<script> 
+var rangeslider = document.getElementById("sliderRange");
+var rangeslider1 = document.getElementById("sliderRange1"); 
+var rangeslider2 = document.getElementById("sliderRange2"); 
+
+document.getElementById('demo').innerHTML = "$"+rangeslider.value;
+document.getElementById('demo1').innerHTML = rangeslider1.value;
+document.getElementById('demo2').innerHTML = rangeslider2.value;
+
+var output = document.getElementById("final"); 
+output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
+  
+rangeslider.oninput = function() { 
+    output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
+    document.getElementById('demo').innerHTML = "$"+rangeslider.value;
+
+}
+rangeslider1.oninput = function() { 
+    output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
+    document.getElementById('demo1').innerHTML = rangeslider1.value;
+
+}
+  rangeslider2.oninput = function() { 
+    output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
+    document.getElementById('demo2').innerHTML = rangeslider2.value;
+
+} 
+</script> 
+  
+</body> 
+</html>
