@@ -28,7 +28,7 @@ input[type='range']::-webkit-slider-runnable-track {
     border-radius: 50%;
     cursor: pointer;
     background: #434343;
-    box-shadow: -350px 0 0 330px #f6cc6c;
+    box-shadow: -550px 0 0 530px #f6cc6c;
   }
 
 }
@@ -127,24 +127,40 @@ document.getElementById('demo').innerHTML = "$"+rangeslider.value;
 document.getElementById('demo1').innerHTML = rangeslider1.value;
 document.getElementById('demo2').innerHTML = rangeslider2.value;
 
+
 var output = document.getElementById("final"); 
 output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
   
-rangeslider.oninput = function() { 
+rangeslider.addEventListener('input', function() { 
     output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
     document.getElementById('demo').innerHTML = "$"+rangeslider.value;
 
-}
-rangeslider1.oninput = function() { 
+})
+rangeslider1.addEventListener('input', function() { 
     output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
     document.getElementById('demo1').innerHTML = rangeslider1.value;
 
-}
-  rangeslider2.oninput = function() { 
+})
+  rangeslider2.addEventListener('input', function() { 
     output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
     document.getElementById('demo2').innerHTML = rangeslider2.value;
 
-} 
+})
+rangeslider.addEventListener('change', function() { 
+    output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
+    document.getElementById('demo').innerHTML = "$"+rangeslider.value;
+
+})
+rangeslider1.addEventListener('change', function() { 
+    output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
+    document.getElementById('demo1').innerHTML = rangeslider1.value;
+
+})
+  rangeslider2.addEventListener('change', function() { 
+    output.innerHTML = "$"+rangeslider.value*rangeslider1.value*rangeslider2.value+"<sub>/wk</sub>"; 
+    document.getElementById('demo2').innerHTML = rangeslider2.value;
+
+})
 </script> 
   
 </body> 
